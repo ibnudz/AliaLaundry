@@ -28,6 +28,7 @@ class MemberPanelProvider extends PanelProvider
         return $panel
             ->id('member')
             ->path('member')
+            ->viteTheme('resources/css/filament/member/theme.css')
             ->login()
             ->registration(Register::class)
             ->colors([

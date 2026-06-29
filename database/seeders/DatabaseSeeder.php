@@ -28,5 +28,10 @@ class DatabaseSeeder extends Seeder
             'phone' => '08198765432',
             'address' => 'Jl. Laundry No. 2',
         ]);
+
+        // $this->call([
+        //     OrderSeeder::class,
+        //     OrderDetailSeeder::class,
+        // ]);
     }
 }
