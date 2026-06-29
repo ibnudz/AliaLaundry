@@ -59,7 +59,7 @@ class Register extends BaseRegister
                             $this->getPasswordConfirmationFormComponent(),
                         ]),
                 ])
-                ->columnSpanFull(),
+                    ->columnSpanFull(),
             ]);
     }
 
