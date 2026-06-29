@@ -29,9 +29,13 @@ class DatabaseSeeder extends Seeder
             'address' => 'Jl. Laundry No. 2',
         ]);
 
-        // $this->call([
-        //     OrderSeeder::class,
-        //     OrderDetailSeeder::class,
-        // ]);
+        $this->call([
+            UserSeeder::class,
+            ServiceSeeder::class,
+            OrderSeeder::class,
+            OrderDetailSeeder::class,
+            ReviewSeeder::class,
+            ComplaintSeeder::class,
+        ]);
     }
 }

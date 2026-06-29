@@ -10,6 +10,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Facades\Auth;
 
 class OrderForm
 {
@@ -20,7 +21,7 @@ class OrderForm
                 TextInput::make('invoice_number')
                     ->required(),
                 Hidden::make('user_id')
-                    ->default(auth()->id()),
+                    ->default(Auth::id()),
                 DateTimePicker::make('order_date')
                     ->required(),
                 DateTimePicker::make('estimated_finish_at'),

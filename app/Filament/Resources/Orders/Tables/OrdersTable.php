@@ -15,6 +15,7 @@ class OrdersTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->defaultSort('order_date', 'desc')
             ->columns([
                 TextColumn::make('invoice_number')
                     ->searchable(),
