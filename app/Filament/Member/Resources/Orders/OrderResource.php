@@ -13,12 +13,13 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 
     public static function infolist(Schema $schema): Schema
     {
@@ -40,7 +41,7 @@ class OrderResource extends Resource
     public static function getEloquentQuery(): Builder
     {
         // Hanya menampilkan data yang user_id-nya sama dengan user yang sedang login
-        return parent::getEloquentQuery()->where('user_id', auth()->id());
+        return parent::getEloquentQuery()->where('user_id', Auth::id());
     }
 
     public static function getPages(): array

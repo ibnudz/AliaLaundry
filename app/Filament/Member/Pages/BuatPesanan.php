@@ -49,9 +49,11 @@ class BuatPesanan extends Page
         $this->calculateTotal();
     }
 
-    public function updatedCart()
+    public function updated($name, $value)
     {
-        $this->calculateTotal();
+        if (str_starts_with($name, 'cart.')) {
+            $this->calculateTotal();
+        }
     }
 
     public function calculateTotal()
@@ -94,7 +96,7 @@ class BuatPesanan extends Page
                 'service_id' => $item['id'],
                 'quantity' => $item['quantity'],
                 // Di migration Anda, kolomnya bernama 'price', bukan 'subtotal'
-                'price' => $item['price'] * $item['quantity'],
+                'price' => $item['price'],
             ]);
         }
 

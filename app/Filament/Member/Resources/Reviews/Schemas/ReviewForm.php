@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Filament\Member\Resources\Reviews\Schemas;
+
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Schema;
+
+class ReviewForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                Select::make('order_id')
+                    ->relationship('order', 'id')
+                    ->required(),
+                Select::make('user_id')
+                    ->relationship('user', 'name')
+                    ->required(),
+                TextInput::make('rating')
+                    ->required()
+                    ->numeric(),
+                Textarea::make('comment')
+                    ->columnSpanFull(),
+            ]);
+    }
+}

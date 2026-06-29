@@ -10,7 +10,6 @@ use Filament\Schemas\Components\Wizard;
 use Filament\Schemas\Components\Wizard\Step;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Hash;
 
 class Register extends BaseRegister
 {
@@ -68,7 +67,7 @@ class Register extends BaseRegister
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => $data['password'],
             'phone' => $data['phone'],
             'address' => $data['address'],
             'role' => 'member',
